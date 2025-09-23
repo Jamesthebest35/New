@@ -1,0 +1,5 @@
+{
+  "name": "ConstructAI Agent",
+  "description": "An enterprise-level AI agent for construction management. It optimizes project schedules, streamlines on-site issue resolution, and enhances resource allocation using generative AI.",
+  "requestFramePermissions": []
+}
