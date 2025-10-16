@@ -2,10 +2,10 @@
 import React, { useState, useCallback } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { DashboardView } from './features/DashboardView';
-import { SchedulerView } from './features/SchedulerView';
-import { IssueTrackerView } from './features/IssueTrackerView';
-import { ResourceManagerView } from './features/ResourceManagerView';
 import { View } from './types';
+import { ContentStudioView } from './features/marketing/ContentStudioView';
+import { CampaignPlannerView } from './features/marketing/CampaignPlannerView';
+import { SEOAssistantView } from './features/marketing/SEOAssistantView';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('dashboard');
@@ -14,12 +14,12 @@ const App: React.FC = () => {
     switch (currentView) {
       case 'dashboard':
         return <DashboardView />;
-      case 'scheduler':
-        return <SchedulerView />;
-      case 'issue-tracker':
-        return <IssueTrackerView />;
-      case 'resource-manager':
-        return <ResourceManagerView />;
+      case 'content-studio':
+        return <ContentStudioView />;
+      case 'campaign-planner':
+        return <CampaignPlannerView />;
+      case 'seo-assistant':
+        return <SEOAssistantView />;
       default:
         return <DashboardView />;
     }
