@@ -1,47 +1,104 @@
 
-export type View = 'dashboard' | 'scheduler' | 'issue-tracker' | 'resource-manager';
+export type View = 'dashboard' | 'content-studio' | 'campaign-planner' | 'seo-assistant';
 
-export interface ScheduleTask {
-  id: string;
-  taskName: string;
-  startDate: string;
-  endDate: string;
-  durationDays: number;
-  dependencies: string[];
+// MARKETING DOMAIN TYPES
+
+export type ContentTone = 'Informative' | 'Persuasive' | 'Friendly' | 'Professional';
+export type ContentFormat = 'Blog' | 'Email' | 'Ad' | 'Social';
+export type ContentLength = 'Short' | 'Medium' | 'Long';
+
+export interface ContentRequest {
+  topic: string;
+  audience: string;
+  tone: ContentTone;
+  format: ContentFormat;
+  keywords?: string[];
+  length?: ContentLength;
+  callToAction?: string;
 }
 
-export interface ScheduleRisk {
-  taskName: string;
-  riskLevel: 'High' | 'Medium' | 'Low';
-  reason: string;
+export interface ContentVariant {
+  headline: string;
+  body: string;
+  channel: 'LinkedIn' | 'X' | 'Instagram' | 'Facebook';
 }
 
-export interface ScheduleAnalysis {
-  optimizedSchedule: ScheduleTask[];
-  riskAnalysis: ScheduleRisk[];
+export interface ContentOutput {
+  title: string;
+  summary: string;
+  body: string;
+  seoMeta: {
+    title: string;
+    description: string;
+    keywords: string[];
+  };
+  variants?: ContentVariant[];
 }
 
-export interface IssueAnalysis {
-    category: 'Safety' | 'Material' | 'Quality' | 'Equipment' | 'Documentation' | 'Other';
-    priority: 'Critical' | 'High' | 'Medium' | 'Low';
-    suggestedSteps: string[];
+export type CampaignObjective = 'Awareness' | 'Engagement' | 'LeadGen' | 'Conversion';
+
+export interface CampaignChannelPlan {
+  channel: 'Email' | 'LinkedIn' | 'X' | 'Instagram' | 'Blog' | 'YouTube' | 'Ads';
+  cadence: string;
+  contentTypes: string[];
 }
 
-export interface Issue {
-  id: number;
+export interface CampaignCalendarItem {
+  date: string; // YYYY-MM-DD
+  channel: string;
+  contentTitle: string;
   description: string;
-  image?: string;
-  analysis?: IssueAnalysis;
+  owner: string;
 }
 
-export interface ResourceAllocation {
-    resourceName: string;
-    resourceType: 'Labor' | 'Equipment';
-    assignedTask: string;
-    shift: string;
+export interface CampaignKpiTarget {
+  name: string;
+  target: number;
+  unit: string; // e.g., % or number
 }
 
-export interface AllocationPlan {
-    allocations: ResourceAllocation[];
-    summary: string;
+export interface CampaignPlan {
+  campaignName: string;
+  objective: CampaignObjective;
+  targetAudience: string;
+  channels: CampaignChannelPlan[];
+  contentCalendar: CampaignCalendarItem[];
+  kpis: CampaignKpiTarget[];
+  brief: string;
+}
+
+export type SearchIntent = 'Informational' | 'Transactional' | 'Navigational' | 'Commercial';
+
+export interface SEOClusterItem {
+  keyword: string;
+  volume: number;
+  difficulty: number;
+  intent: string;
+}
+
+export interface SEOCluster {
+  seedKeyword: string;
+  intent: SearchIntent;
+  cluster: SEOClusterItem[];
+}
+
+export interface SEOOutlineSection {
+  h2: string;
+  bullets: string[];
+}
+
+export interface SEOOutline {
+  h1: string;
+  metaTitle: string;
+  metaDescription: string;
+  sections: SEOOutlineSection[];
+  faqs: { question: string; answer: string }[];
+  internalLinks?: string[];
+}
+
+export interface MarketingKpi {
+  name: string;
+  value: string;
+  trend?: string;
+  trendDirection?: 'up' | 'down';
 }

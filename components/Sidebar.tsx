@@ -38,7 +38,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, setCurrentView })
             </svg>
           </div>
           <h1 className="text-2xl font-bold text-white tracking-wider">
-            Construct<span className="text-sky-400">AI</span>
+            Growth<span className="text-sky-400">AI</span>
           </h1>
         </div>
         <nav className="space-y-2">
@@ -65,8 +65,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ currentView, setCurrentView })
             className="w-10 h-10 rounded-full object-cover mr-4"
           />
           <div>
-            <p className="font-semibold text-slate-200">John Doe</p>
-            <p className="text-xs text-slate-400">Project Manager</p>
+            <p className="font-semibold text-slate-200">Alex Morgan</p>
+            <p className="text-xs text-slate-400">Head of Marketing</p>
           </div>
         </div>
       </div>
